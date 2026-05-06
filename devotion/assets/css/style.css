@@ -1,0 +1,191 @@
+:root {
+    --ios-bg-light: #f2f2f7;
+    --ios-bg-dark: #000000;
+    --ios-card-bg-light: rgba(255, 255, 255, 0.45);
+    --ios-card-bg-dark: rgba(28, 28, 30, 0.45);
+    --ios-accent: #007aff;
+    --ios-accent-gradient: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+    --ios-text-light: #000000;
+    --ios-text-dark: #ffffff;
+    --ios-secondary-text-light: rgba(0, 0, 0, 0.5);
+    --ios-secondary-text-dark: rgba(255, 255, 255, 0.5);
+    --glass-blur: 32px;
+    --card-radius: 32px;
+    --transition-speed: 0.6s;
+    --ios-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+    --border-color-light: rgba(0, 0, 0, 0.08);
+    --border-color-dark: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] {
+    --ios-bg: var(--ios-bg-dark);
+    --ios-card-bg: var(--ios-card-bg-dark);
+    --ios-text: var(--ios-text-dark);
+    --ios-secondary-text: var(--ios-secondary-text-dark);
+    --border-color: var(--border-color-dark);
+    --bg-mesh: radial-gradient(at 0% 0%, rgba(88, 86, 214, 0.25) 0, transparent 50%),
+               radial-gradient(at 100% 100%, rgba(0, 122, 255, 0.25) 0, transparent 50%);
+}
+
+[data-theme="light"] {
+    --ios-bg: var(--ios-bg-light);
+    --ios-card-bg: var(--ios-card-bg-light);
+    --ios-text: var(--ios-text-light);
+    --ios-secondary-text: var(--ios-secondary-text-light);
+    --border-color: var(--border-color-light);
+    --bg-mesh: radial-gradient(at 0% 0%, rgba(88, 86, 214, 0.15) 0, transparent 50%),
+               radial-gradient(at 100% 100%, rgba(0, 122, 255, 0.15) 0, transparent 50%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background: var(--ios-bg);
+    background-image: var(--bg-mesh);
+    color: var(--ios-text);
+    transition: background var(--transition-speed) cubic-bezier(0.16, 1, 0.3, 1), 
+                color var(--transition-speed) ease;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.glass {
+    background: var(--ios-card-bg);
+    backdrop-filter: blur(var(--glass-blur)) saturate(200%);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(200%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--card-radius);
+    box-shadow: var(--ios-shadow);
+}
+
+/* Sidebar / Navigation */
+nav.sidebar {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    padding: 10px;
+    display: flex;
+    gap: 16px;
+    z-index: 1000;
+}
+
+nav.sidebar a {
+    color: var(--ios-secondary-text);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+nav.sidebar a.active {
+    background: var(--ios-accent-gradient);
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 122, 255, 0.4);
+}
+
+nav.sidebar a:hover:not(.active) {
+    background: rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+}
+
+/* Bento Grid Dashboard */
+.dashboard {
+    padding: 80px 30px 160px;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 32px;
+}
+
+.bento-item {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grid Layout Assignments */
+.header-card { grid-column: span 12; display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 10px; }
+.hero-card { grid-column: span 8; grid-row: span 2; }
+.announcement-card { grid-column: span 4; grid-row: span 2; }
+.up-next-card { grid-column: span 6; }
+.stats-card { grid-column: span 6; }
+.verse-card { grid-column: span 5; }
+.prayer-wall-card { grid-column: span 7; }
+.shortcuts-card { grid-column: span 12; }
+.resources-card { grid-column: span 12; }
+
+/* Header Styling */
+.welcome-text h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.05em; line-height: 1.1; }
+.current-date { display: flex; align-items: center; gap: 12px; padding: 12px 24px; font-weight: 600; border-radius: 20px; }
+
+/* Card Headers */
+.card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; color: var(--ios-accent); }
+.card-header h2 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 800; }
+
+/* Hero Card Content */
+.highlight-content h3 { font-size: 2.5rem; margin-bottom: 16px; font-weight: 800; }
+.highlight-content .verse { font-size: 1.3rem; color: var(--ios-secondary-text); margin-bottom: 24px; font-weight: 500; }
+.scripture-box { background: rgba(0,0,0,0.03); padding: 24px; border-radius: 20px; margin-bottom: 30px; }
+[data-theme="dark"] .scripture-box { background: rgba(255,255,255,0.03); }
+.scripture { font-size: 1.2rem; line-height: 1.7; font-weight: 400; }
+.leader-chip { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+.leader-chip img { width: 36px; height: 36px; border-radius: 50%; }
+
+/* Stats Card */
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
+.stat-box { text-align: center; padding: 20px; border-radius: 24px; background: rgba(0,0,0,0.02); }
+[data-theme="dark"] .stat-box { background: rgba(255,255,255,0.02); }
+.stat-value { display: block; font-size: 2rem; font-weight: 800; color: var(--ios-accent); }
+.stat-label { font-size: 0.8rem; font-weight: 600; color: var(--ios-secondary-text); }
+.progress-container { margin-top: auto; }
+.progress-label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 10px; }
+.progress-bar { height: 12px; background: rgba(0,0,0,0.05); border-radius: 6px; overflow: hidden; }
+[data-theme="dark"] .progress-bar { background: rgba(255,255,255,0.05); }
+.progress-fill { height: 100%; background: var(--ios-accent-gradient); border-radius: 6px; }
+
+/* Prayer Wall */
+.prayer-list { display: flex; flex-direction: column; gap: 16px; }
+.prayer-item { padding: 16px; border-radius: 20px; background: rgba(0,0,0,0.02); border-left: 4px solid var(--ios-accent); }
+[data-theme="dark"] .prayer-item { background: rgba(255,255,255,0.02); }
+.prayer-item p { font-weight: 500; margin-bottom: 4px; }
+.prayer-item span { font-size: 0.75rem; color: var(--ios-secondary-text); }
+
+/* Quick Actions */
+.shortcuts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+.action-card { border: none; padding: 32px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+.action-card i { width: 40px; height: 40px; color: var(--ios-accent); }
+.action-card span { font-weight: 700; font-size: 1.1rem; }
+.action-card:hover { transform: translateY(-12px) scale(1.03); background: rgba(0, 122, 255, 0.1); border-color: var(--ios-accent); }
+
+/* Theme Toggle */
+.theme-toggle { position: fixed; top: 40px; right: 40px; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 1001; border-radius: 20px; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+.theme-toggle:hover { transform: rotate(15deg) scale(1.1); }
+
+/* Animations */
+@keyframes bentoIn {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+.animate-fade {
+    opacity: 0;
+    animation: bentoIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--delay, 0s);
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .hero-card, .announcement-card, .up-next-card, .stats-card, .verse-card, .prayer-wall-card { grid-column: span 12; }
+}

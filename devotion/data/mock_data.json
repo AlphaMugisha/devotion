@@ -1,0 +1,56 @@
+{
+  "currentUser": {
+    "id": 1,
+    "name": "Alex Johnson",
+    "class": "Grade 12 - Alpha",
+    "photo": "https://i.pravatar.cc/150?u=alex",
+    "bio": "Passionate about tech and spirituality. Leading devotion this Friday!"
+  },
+  "students": [
+    { "id": 1, "name": "Alex Johnson", "class": "Grade 12 - Alpha", "photo": "https://i.pravatar.cc/150?u=alex", "bio": "Passionate about tech and spirituality." },
+    { "id": 2, "name": "Sarah Chen", "class": "Grade 12 - Alpha", "photo": "https://i.pravatar.cc/150?u=sarah", "bio": "Music lover and choir lead." },
+    { "id": 3, "name": "Marcus Wright", "class": "Grade 12 - Alpha", "photo": "https://i.pravatar.cc/150?u=marcus", "bio": "Aspiring theologian." },
+    { "id": 4, "name": "Emily Davis", "class": "Grade 12 - Alpha", "photo": "https://i.pravatar.cc/150?u=emily", "bio": "Art and soul." }
+  ],
+  "devotions": [
+    {
+      "id": 101,
+      "date": "2026-05-06",
+      "title": "Finding Peace in Chaos",
+      "verse": "Philippians 4:7",
+      "scripture": "And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.",
+      "summary": "Focusing on internal tranquility despite external pressures.",
+      "leader": "Sarah Chen",
+      "status": "ongoing"
+    },
+    {
+      "id": 102,
+      "date": "2026-05-07",
+      "title": "The Strength of Unity",
+      "verse": "Ecclesiastes 4:12",
+      "scripture": "Though one may be overpowered, two can defend themselves. A cord of three strands is not quickly broken.",
+      "summary": "Exploring the power of community and supporting one another.",
+      "leader": "Alex Johnson",
+      "status": "upcoming"
+    },
+    {
+      "id": 100,
+      "date": "2026-05-05",
+      "title": "A Heart of Gratitude",
+      "verse": "1 Thessalonians 5:18",
+      "scripture": "Give thanks in all circumstances; for this is God's will for you in Christ Jesus.",
+      "summary": "Reflecting on daily blessings.",
+      "leader": "Marcus Wright",
+      "status": "past"
+    }
+  ],
+  "announcements": [
+    { "id": 1, "title": "Youth Retreat 2026", "content": "Sign ups for the summer retreat are now open!", "date": "2026-05-04" },
+    { "id": 2, "title": "New Hymnals", "content": "The digital hymnal library has been updated with 50 new songs.", "date": "2026-05-05" }
+  ],
+  "messages": [
+    { "senderId": 2, "text": "Hey everyone, don't forget the scripture reading for tomorrow!", "timestamp": "2026-05-06 09:00" },
+    { "senderId": 1, "text": "Thanks Sarah! I'm preparing my notes now.", "timestamp": "2026-05-06 09:15" },
+    { "senderId": 3, "text": "Looking forward to it.", "timestamp": "2026-05-06 09:20" }
+  ]
+}
